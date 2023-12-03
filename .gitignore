@@ -1,0 +1,36 @@
+
+# Dependencias generales
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+.env
+
+# Testing
+coverage
+
+# Next.js
+.next/
+/out/
+
+# Producción
+build
+
+# Misceláneos
+.DS_Store
+*.pem
+
+# Depuración
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de entorno locales
+.env*.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
