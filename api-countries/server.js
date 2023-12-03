@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import {router} from '../routes/countrie.js';
+import {router} from './routes/country.js';
 
 
 class Server {
@@ -18,8 +18,6 @@ class Server {
     }
 
     middlewares() {
-        // Public directory
-        this.app.use( express.static('public') );
 
         // Read and parse body
         this.app.use( express.json() );
