@@ -2,6 +2,7 @@
 
 Bienvenido a un desafío tecnico sobre una aplicación simple que proporciona información sobre los países y su población.
 
+
 ## Estructura del Proyecto
 
 El proyecto se organiza en dos partes: la api y el frontend.
@@ -15,15 +16,7 @@ El proyecto se organiza en dos partes: la api y el frontend.
     # backend/.env
     PORT=tupuerto
     ```
-
-  - **Cómo Ejecutar el Backend:**
-    ```bash
-    npm install
-    nodemon app
-    ```
-
-  - **Nota para el Frontend:**
-    Si decidís cambiar el puerto en el backend, asegurate de actualizar la solicitud de la API en el archivo `front-countries/app/components/Search.jsx`. Busca la línea donde se hace la solicitud y ajusta el puerto en la URL en consecuencia.
+    Tené en cuenta que si decidís cambiar el puerto en el backend, tenes que asegurarte de actualizar la solicitud de la API en el front ubicada en el archivo `front-countries/app/components/Search.jsx`. Busca la línea donde se hace la solicitud y ajusta el puerto en la URL en consecuencia.
 
     ```jsx
     // frontend/app/components/Search.jsx
@@ -31,17 +24,13 @@ El proyecto se organiza en dos partes: la api y el frontend.
     ```
 
 
-- **frontend/**: Alberga la interfaz de usuario construida con React y Next 13.
+- **frontend/**: Alberga la interfaz de usuario construida con React y Next.js 13. Consta de una pagina con un input encargado de buscar, según que país se coloque, su nombre (si es que hay mas de una coincidencia), población y porcentaje.
 
-  - **Cómo Ejecutar el Frontend:**
-    ```bash
-    npm install
-    npm run dev
-    ```
 
 ## Requisitos Previos
 
 - Node.js y npm deben estar instalados en tu sistema. Puedes descargarlos desde [el sitio oficial de Node.js](https://nodejs.org/).
+
 
 ## Configuración Inicial
 
@@ -59,6 +48,7 @@ El proyecto se organiza en dos partes: la api y el frontend.
     cd front-countries
     npm install
     ```
+
 
 ## Ejecución del Proyecto
 
