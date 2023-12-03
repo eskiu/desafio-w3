@@ -13,7 +13,7 @@ El proyecto se organiza en dos partes: la api y el frontend.
 
     ```bash
     # backend/.env
-    PORT=3001
+    PORT=tupuerto
     ```
 
   - **Cómo Ejecutar el Backend:**
@@ -53,10 +53,10 @@ El proyecto se organiza en dos partes: la api y el frontend.
 
 2. Instala las dependencias del backend y frontend:
     ```bash
-    cd backend
+    cd api-countries
     npm install
 
-    cd ../frontend
+    cd front-countries
     npm install
     ```
 
