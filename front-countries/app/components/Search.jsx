@@ -3,13 +3,15 @@
 import { useState } from "react"
 import axios from "axios"
 import styles from './Search.module.css'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot, faUserGroup, faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
+import './Search.css'
 
 export default function Search() {
 
     const [valor, setValor] = useState('')
     const [resultado, setResultado] = useState([])
-    const [status, setStatus] = useState('')
+    const [status, setStatus] = useState(null)
 
     const buscar = async () => {
 
@@ -36,29 +38,38 @@ export default function Search() {
       <section>
             <div className={styles.input_container}>
                 <input className={styles.input} type="text" value={valor} onChange={(e) => setValor(e.target.value)} onKeyDown={handleKeyPress} />
-                <button className={styles.button} onClick={buscar}>Buscar</button>
+                <button
+                    className={styles.buttonSearch}
+                    onClick={buscar}
+                    type="button"
+                    aria-label="Buscar"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Buscar
+                </button>
             </div>
             {status === 200 ? (
-                <table className={styles.table}>
-                    <thead className={styles.thead}>
-                        <tr className={styles.tr}>
-                        <th className={styles.th}>Nombre del país</th>
-                        <th className={styles.th}>Población</th>
-                        <th className={styles.th}>Porcentaje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div className={styles.tableContainer}>
+                    <div className={styles.tableHeader}>
+                        <div className={styles.tableHeaderItem}>Nombre del país</div>
+                        <div className={styles.tableHeaderItem}>Población</div>
+                        <div className={styles.tableHeaderItem}>Porcentaje</div>
+                    </div>
+                    <div className={styles.tableBody}>
                         {resultado.map(({ nombre, poblacion, porcentaje }) => (
-                        <tr key={nombre} className={styles.tr}>
-                            <td className={styles.td}>{nombre}</td>
-                            <td className={styles.td}>{poblacion}</td>
-                            <td className={styles.td}>{porcentaje}%</td>
-                        </tr>
+                        <div key={nombre} className='tableBodyItem'>
+                            <div className={styles.tableBodyItemName}><FontAwesomeIcon icon={faLocationDot} className={styles.iconName}/> {nombre}</div>
+                            <div className={styles.tableBodyItemPoblacion}><FontAwesomeIcon icon={faUserGroup} className={styles.iconPoblacion}/> {poblacion}</div>
+                            <div className={styles.tableBodyItemPercentage}><FontAwesomeIcon icon={faEarthAmericas} className={styles.iconPercentage}/>{porcentaje}%</div>
+                        </div>
                         ))}
-                    </tbody>
-                </table>
-            ) : (
-                <p>No se encontraron resultados</p>
+                    </div>
+                </div>
+            ) : ( 
+                status !== null && <p className={styles.notFoundResults}>No se encontraron resultados</p>
             )}
       </section>
     )

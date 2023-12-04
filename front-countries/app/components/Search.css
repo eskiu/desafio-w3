@@ -1,0 +1,38 @@
+:root {
+    --darkmode-text: #fff;
+  
+    --lightmode-text: #111;
+}
+
+body.light{
+    --colorInv: var(--lightmode-text)
+}
+
+body.dark{
+    --colorInv: var(--darkmode-text)
+}
+
+
+.tableBodyItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+}
+
+.tableBodyItem:last-child{
+    border-bottom: none;
+    border-radius: 0px 0px 10px 10px;
+
+}
+
+.tableBodyItem:nth-child(odd){
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    color: var(--colorInv);
+}
+
+.tableBodyItem:nth-child(even){
+    background-color: #333;
+    color: #fff;
+}

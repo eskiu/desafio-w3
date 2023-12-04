@@ -1,25 +1,4 @@
 
-.table{
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid #ddd;
-    margin-top: 2rem;
-}
-
-.thead{
-    background-color: #333;
-    color: #fff;
-}
-
-.th, .td{
-    text-align: left;
-    padding: 16px;
-}
-
-.tr:nth-child(even){
-    background-color: #333;
-}
 
 .input_container{
     display: flex;
@@ -29,20 +8,176 @@
 }
 
 .input{
-    width: 350px;
+    max-width: 450px;
+    width: 100%;
     padding: 12px 20px;
     box-sizing: border-box;
     border-radius: 5px;
     border: none;
 }
 
-.button{
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
+.buttonSearch {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #19b593;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: transparent;
     border: none;
-    font-weight: 600;
-    box-sizing: border-box;
-    border-radius: 5px;
+    overflow: hidden;
+    transition: .5s;
     cursor: pointer;
+    border-radius: 5px;
+}
+  
+.buttonSearch:hover {
+    background: #19b593;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #19b593,
+                0 0 25px #19b593,
+                0 0 10px #19b593,
+                0 0 20px #19b593;
+}
+  
+.buttonSearch span {
+    position: absolute;
+    display: block;
+}
+  
+.buttonSearch span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #19b593);
+    animation: btn-anim1 2s linear infinite;
+    animation-delay: -.5s;
+}
+  
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+  
+.buttonSearch span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #19b593);
+    animation: btn-anim2 2s linear infinite;
+    animation-delay: 0s;
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+    50%, 100% {
+        top: 100%;
+    }
+}
+
+.buttonSearch span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #19b593);
+    animation: btn-anim3 2s linear infinite;
+    animation-delay: .5s;
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+    50%, 100% {
+        right: 100%;
+    }
+}
+
+.buttonSearch span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #19b593);
+    animation: btn-anim4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+    50%, 100% {
+        bottom: 100%;
+    }
+}
+
+  
+.tableContainer{
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px rgba(120, 119, 119, 0.255)
+}
+
+.tableHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    background-color: #333;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.tableHeaderItem{
+    color: white;
+    font-weight: 600;
+    cursor: default;
+    max-width: 140px;
+    width: 100%;
+}
+
+.iconName, .iconPercentage, .iconPoblacion{
+    transition: color 0.1s ease-in-out;
+    margin-right: 10px;
+}
+
+.tableBodyItemName, .tableBodyItemPoblacion, .tableBodyItemPercentage{
+    display: flex;
+    align-items: center;
+    cursor: default;
+    max-width: 140px;
+    width: 100%;
+}
+
+.tableBodyItemName:hover .iconName{
+    color: red;
+}
+
+.tableBodyItemPoblacion:hover .iconPoblacion{
+    color: cornflowerblue;
+}
+
+.tableBodyItemPercentage:hover .iconPercentage{
+    color: #4CAF50;
+}
+
+.notFoundResults{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
 }
