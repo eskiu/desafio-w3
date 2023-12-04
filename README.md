@@ -55,7 +55,7 @@ El proyecto se organiza en dos partes: la api y el frontend.
 1. **Inicia el Backend:**
     ```bash
     cd api-countries
-    nodemon app
+    node app
     ```
 
     El servidor estará disponible en `http://localhost:8080` si no se proporciona un archivo `.env`. En caso de que se configure un archivo `.env`, el servidor se ejecutará en el puerto especificado en la variable `PORT`.
