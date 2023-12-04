@@ -1,50 +1,36 @@
 'use client';
 
-import React from "react"
-import { useState } from "react"
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import './Darkmode.css'
+import './Darkmode.css';
 
 export default function Darkmode() {
-    const [darkMode, setDarkMode] = useState(localStorage.getItem("theme") === null ? true : localStorage.getItem("theme") === "dark" ? true : false);
+    const [darkMode, setDarkMode] = useState(true);
 
-    const body = document.body;
-    const lightTheme = "light";
-    const darkTheme = "dark";
-    let theme;
-
-    if (localStorage) {
-        theme = localStorage.getItem("theme");
-    }
-
-    if (theme === lightTheme || theme === darkTheme) {
-        body.classList.add(theme);
-    } else {
-        body.classList.add(darkTheme);
-    }
+    useEffect(() => {
+        // Verifica si se está ejecutando en el entorno del navegador
+        if (typeof window !== 'undefined') {
+            const savedTheme = localStorage.getItem("theme") || "dark";
+            document.body.classList.add(savedTheme);
+            setDarkMode(savedTheme === "dark");
+        }
+    }, []); // Se ejecuta solo una vez al montar el componente
 
     const switchTheme = () => {
-        if (theme === lightTheme) {
-            body.classList.replace(lightTheme, darkTheme);
-            localStorage.setItem("theme", "dark");
-            theme = darkTheme;
-            setDarkMode(true);
-        } else {
-            body.classList.replace(darkTheme, lightTheme);
-            localStorage.setItem("theme", "light");
-            theme = lightTheme;
-            setDarkMode(false);
-        }
-    }
+        const newTheme = darkMode ? "light" : "dark";
+        document.body.classList.replace(darkMode ? "dark" : "light", newTheme);
+        localStorage.setItem("theme", newTheme);
+        setDarkMode(!darkMode);
+    };
 
     return (
         <div className="mid">
-            <label className={`rocker ${theme === lightTheme ? 'checked' : ''}`}>
-                <input type="checkbox" checked={theme === lightTheme ? true : false} onChange={()=>{}} onClick={() => switchTheme()}/>
-                <span className={'switch_left'}><FontAwesomeIcon icon={faSun}/></span>
-                <span className={'switch_right'}><FontAwesomeIcon icon={faMoon}/></span>
+            <label className={`rocker ${!darkMode ? 'checked' : ''}`}>
+                <input type="checkbox" checked={!darkMode} onChange={() => {}} onClick={switchTheme} />
+                <span className={'switch_left'}><FontAwesomeIcon icon={faSun} /></span>
+                <span className={'switch_right'}><FontAwesomeIcon icon={faMoon} /></span>
             </label>
         </div>
-    )
+    );
 }
