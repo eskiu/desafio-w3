@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import Navbar from './components/Navbar'
 
 export const metadata = {
-  title: 'w3',
+  title: 'Desafío Técnico - w3 IT',
   description: 'Challenge for w3, generated with Next.js',
 }
 
