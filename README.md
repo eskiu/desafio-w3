@@ -55,8 +55,8 @@ Asegúrate de tener Node.js y npm instalados en tu sistema. Puedes descargarlos 
     node app
     ```
 
-    El servidor estará disponible en `http://localhost:8080` por defecto. Si deseas cambiar el puerto, crea un archivo `.env` en la carpeta `api-countries` y define la variable `PORT`.
-    Tené en cuenta que si decidís cambiar el puerto en el backend, tenes que asegurarte de actualizar la solicitud de la API en el front ubicada en el archivo `front-countries/app/components/Search.jsx`. Busca la línea donde se hace la solicitud y ajusta el puerto en la URL en consecuencia.
+    El servidor estará disponible en **http://localhost:8080** por defecto. Si deseas cambiar el puerto, crea un archivo **.env** en la carpeta **api-countries** y define la variable **PORT**.
+    Tené en cuenta que si decidís cambiar el puerto en el backend, tenes que asegurarte de actualizar la solicitud de la API en el front ubicada en el archivo **front-countries/app/components/Search.jsx**. Busca la línea donde se hace la solicitud y ajusta el puerto en la URL en consecuencia.
 
     ```jsx
     // frontend/app/components/Search.jsx
@@ -79,9 +79,9 @@ Para sembrar datos en la base de datos, utiliza el siguiente script:
   npm run seed-countries
   ```
 
-Asegúrate de que la base de datos esté configurada correctamente antes de ejecutar el script. La URI de la base de datos se encuentra en `database/config.js`. Se recomienda agregar la URI en un archivo `.env` para mayor seguridad.
+Asegúrate de que la base de datos esté configurada correctamente antes de ejecutar el script. La URI de la base de datos se encuentra en **database/config.js**. Se recomienda agregar la URI en un archivo **.env** para mayor seguridad.
 
-`Importante:` Este proyecto expone la URI de la base de datos con fines de que esto es un challenge. En un entorno de producción, es esencial proteger esta información y no exponerla públicamente.
+**Importante:** Este proyecto expone la URI de la base de datos con fines de que esto es un challenge. En un entorno de producción, es esencial proteger esta información y no exponerla públicamente.
 
 ## Ejecución de Pruebas Unitarias
 
