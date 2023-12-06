@@ -55,8 +55,8 @@ Asegúrate de tener Node.js y npm instalados en tu sistema. Puedes descargarlos 
     node app
     ```
 
-    El servidor estará disponible en **http://localhost:8080** por defecto. Si deseas cambiar el puerto, crea un archivo **.env** en la carpeta **api-countries** y define la variable **PORT**.
-    Tené en cuenta que si decidís cambiar el puerto en el backend, tenes que asegurarte de actualizar la solicitud de la API en el front ubicada en el archivo **front-countries/app/components/Search.jsx**. Busca la línea donde se hace la solicitud y ajusta el puerto en la URL en consecuencia.
+    El servidor estará disponible en `http://localhost:8080` por defecto. Si deseas cambiar el puerto, crea un archivo `.env` en la carpeta `api-countries` y define la variable `PORT`.
+    Tené en cuenta que si decidís cambiar el puerto en el backend, tenes que asegurarte de actualizar la solicitud de la API en el front ubicada en el archivo `front-countries/app/components/Search.jsx`. Busca la línea donde se hace la solicitud y ajusta el puerto en la URL en consecuencia.
 
     ```jsx
     // frontend/app/components/Search.jsx
