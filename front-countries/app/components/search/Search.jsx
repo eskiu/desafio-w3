@@ -6,12 +6,14 @@ import styles from './Search.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faUserGroup, faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import './Search.css'
+import Loader from "../loader/loader";
 
 export default function Search() {
 
     const [valor, setValor] = useState('')
     const [resultado, setResultado] = useState([])
     const [status, setStatus] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const buscar = async () => {
 
@@ -19,16 +21,20 @@ export default function Search() {
             const res = await axios.get(`http://localhost:8080/buscar?valor=${valor}`)
             setResultado(res.data)
             setStatus(res.status)
+            setLoading(false)
         }
         catch(error){
             console.log(error, 'error')
             setResultado([])
+            if(error.code === 'ERR_NETWORK') setStatus(500)
+            setLoading(false)
         }
 
     }
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
+            setStatus(null)
             e.preventDefault();
             buscar();
         }
@@ -37,7 +43,7 @@ export default function Search() {
     return (
       <section>
             <div className={styles.input_container}>
-                <input className={styles.input} type="text" value={valor} onChange={(e) => setValor(e.target.value)} onKeyDown={handleKeyPress} />
+                <input className={styles.input} type="text" value={valor} onChange={(e) => (setValor(e.target.value), setStatus(null))} onKeyDown={handleKeyPress} />
                 <button
                     className={styles.buttonSearch}
                     onClick={buscar}
@@ -51,7 +57,13 @@ export default function Search() {
                     Buscar
                 </button>
             </div>
-            {status === 200 ? (
+            
+            {loading && 
+                <div className={styles.loader_container}>
+                    <Loader />
+                </div>
+            }
+            {resultado.length > 0 && (
                 <div className={styles.tableContainer}>
                     <div className={styles.tableHeader}>
                         <div className={styles.tableHeaderItem}>Nombre del país</div>
@@ -62,15 +74,16 @@ export default function Search() {
                         {resultado.map(({ nombre, poblacion, porcentaje }) => (
                         <div key={nombre} className='tableBodyItem'>
                             <div className={styles.tableBodyItemName}><FontAwesomeIcon icon={faLocationDot} className={styles.iconName}/> {nombre}</div>
-                            <div className={styles.tableBodyItemPoblacion}><FontAwesomeIcon icon={faUserGroup} className={styles.iconPoblacion}/> {poblacion}</div>
+                            <div className={styles.tableBodyItemPoblacion}><FontAwesomeIcon icon={faUserGroup} className={styles.iconPoblacion}/> {poblacion.toLocaleString('es')}</div>
                             <div className={styles.tableBodyItemPercentage}><FontAwesomeIcon icon={faEarthAmericas} className={styles.iconPercentage}/>{porcentaje}%</div>
                         </div>
                         ))}
                     </div>
                 </div>
-            ) : ( 
-                status !== null && <p className={styles.notFoundResults}>No se encontraron resultados</p>
             )}
+            {(status === 204 && valor.length > 2) && <div className={styles.notFoundResults}>No se encontraron resultados.</div>}
+            {(status === 204 && valor.length < 3) && <div className={styles.requirements}>Por favor, ingrese un país o al menos 3 caracteres.</div>}
+            {status === 500 && <div className={styles.errorResults}>Error en el servidor.</div>}
       </section>
     )
   }

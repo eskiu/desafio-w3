@@ -1,7 +1,7 @@
-import Darkmode from './Darkmode'
+import Darkmode from '../darkmode/Darkmode'
 import styles from './Navbar.module.css'
 import Image from 'next/image'
-import LogoW3 from '../../public/logo_w3.svg'
+import LogoW3 from '/public/logo_w3.svg'
 
 export default function Navbar() {
   return (

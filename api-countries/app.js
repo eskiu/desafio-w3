@@ -8,6 +8,5 @@ const server = new Server();
 
 (async () => {
     await dbConnection();
-    await seedCountries();
     server.listen();
   })();

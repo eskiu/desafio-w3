@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import Navbar from './components/Navbar'
+import Navbar from './components/navbar/Navbar'
 
 export const metadata = {
   title: 'Desafío Técnico - w3 IT',

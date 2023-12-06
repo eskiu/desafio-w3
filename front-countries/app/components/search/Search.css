@@ -1,15 +1,19 @@
 :root {
     --darkmode-text: #fff;
+    --darkmode-border-bottom: #333;
   
     --lightmode-text: #111;
+    --lightmode-border-bottom: #fff;
 }
 
 body.light{
-    --colorInv: var(--lightmode-text)
+    --colorInv: var(--lightmode-text);
+    --colorBorderTable: var(--lightmode-border-bottom);
 }
 
 body.dark{
-    --colorInv: var(--darkmode-text)
+    --colorInv: var(--darkmode-text);
+    --colorBorderTable: var(--darkmode-border-bottom);
 }
 
 
@@ -35,4 +39,8 @@ body.dark{
 .tableBodyItem:nth-child(even){
     background-color: #333;
     color: #fff;
+}
+
+.tableBodyItem:nth-last-child(1){
+    border-bottom: 1px solid #333;
 }

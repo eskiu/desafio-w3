@@ -18,8 +18,5 @@ describe('fetchCountriesFromDB', () => {
 
     // Verifica que la función status haya sido llamada con el código 204
     expect(res.status).toHaveBeenCalledWith(204);
-
-    // Verifica que la función send no haya sido llamada cuando el resultado de fetchCountriesFromDB es null
-    expect(res.send).not.toHaveBeenCalled();
   });
 });

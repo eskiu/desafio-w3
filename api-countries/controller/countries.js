@@ -2,7 +2,7 @@ import { Country } from '../models/countryModel.js';
 import { response } from 'express';
 
 const fetchCountriesFromDB = async (valor) => {
-  if (!valor || valor.length < 3) {
+  if (!valor || valor.length < 3 || valor === '') {
     return null;
   }
 
@@ -51,7 +51,7 @@ const countryGet = async (req, res = response) => {
     const result = await fetchCountriesFromDB(valor);
 
     if (result === null) {
-      return res.status(204);
+      return res.status(204).send();
     }
 
     res.json(result);
