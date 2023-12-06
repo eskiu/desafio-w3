@@ -74,10 +74,10 @@ Asegúrate de tener Node.js y npm instalados en tu sistema. Puedes descargarlos 
 
 Para sembrar datos en la base de datos, utiliza el siguiente script:
 
-    ```bash
-    cd api-countries
-    npm run seed-countries
-    ```
+  ```bash
+  cd api-countries
+  npm run seed-countries
+  ```
 
 Asegúrate de que la base de datos esté configurada correctamente antes de ejecutar el script. La URI de la base de datos se encuentra en `database/config.js`. Se recomienda agregar la URI en un archivo `.env` para mayor seguridad.
 
@@ -87,8 +87,8 @@ Asegúrate de que la base de datos esté configurada correctamente antes de ejec
 
 El proyecto cuenta con pruebas unitarias para verificar el correcto funcionamiento de la API. Asegúrate de haber instalado Jest en la carpeta `api-countries` antes de ejecutar las pruebas.
 
-    ```bash
-    cd api-countries
-    npm install --save-dev jest @babel/core @babel/preset-env @babel/preset-typescript @types/jest ts-jest
-    npm test
-    ```
+  ```bash
+  cd api-countries
+  npm install --save-dev jest @babel/core @babel/preset-env @babel/preset-typescript @types/jest ts-jest
+  npm test
+  ```
