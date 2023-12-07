@@ -6,7 +6,7 @@ import styles from './Search.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faUserGroup, faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import './Search.css'
-import Loader from "../loader/loader";
+import Loader from "../loader/Loader";
 
 export default function Search() {
 
